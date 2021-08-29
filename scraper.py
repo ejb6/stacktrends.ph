@@ -83,5 +83,8 @@ if __name__ == '__main__':
         'python-flask',
         'node.js'
         ]
+    
+    # job_title is 'developer'
+    # job_title is used to filter out the results
     scrape(web_frameworks, 'webFrameworks.js', 'developer')
     # Output the data to 'webFrameworks.js'
