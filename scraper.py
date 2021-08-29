@@ -72,8 +72,8 @@ def scrape(keyword_list, filename, job_title):
 
 
 if __name__ == '__main__':
-    # Sample Query
-    # Search keywords for web frameworks:
+    # Sample Query:
+    # Determine the demand for back-end web frameworks for developers:
     web_frameworks = [
         'laravel',
         'spring-boot',
@@ -84,3 +84,4 @@ if __name__ == '__main__':
         'node.js'
         ]
     scrape(web_frameworks, 'webFrameworks.js', 'developer')
+    # Output the data to 'webFrameworks.js'
