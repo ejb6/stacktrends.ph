@@ -15,7 +15,7 @@ skills for the current job market in the Philippines. This is a work in progress
   You can process this file however you want.
   
 ## Sample Output
-The demand for different Web frameworks for companies that are
+The demand for different back-end frameworks from companies that are
 hiring web developers on a span of two days:
 ```
 const webFrameworks = [
