@@ -17,32 +17,9 @@ skills for the current job market in the Philippines. This is a work in progress
   
 ## Sample Output
 The demand for different back-end frameworks from companies that are
-hiring web developers on a span of two days (real data):
+hiring web developers (real data):
 ```
-const webFrameworks = [
-  {
-    "date": "2021-08-27", 
-    "laravel": 1400, 
-    "spring-boot": 278, 
-    "asp.net": 73, 
-    "ruby-rails": 74, 
-    "python-django": 87, 
-    "python-flask": 26, 
-    "node.js": 1060
-  },
-  {
-    "date": "2021-08-29", 
-    "laravel": 1411, 
-    "spring-boot": 278, 
-    "asp.net": 73, 
-    "ruby-rails": 74, 
-    "python-django": 87, 
-    "python-flask": 26, 
-    "node.js": 1001
-  },
-]
 ```
-The demand for Laravel developers increased from 1400 jobs to 1411 jobs in a span of two days.
 
 ---
 

@@ -57,18 +57,21 @@ def scrape(keyword_list, filename, job_title):
         json_data[item] = jobs_int
 
     # The following block is used to append the json_data
-    with open(filename, 'w+') as convert_file:
-        contents_current = convert_file.read()
+    try:
+        current_file = open(filename, 'r')
+        contents_current = current_file.read()
         # The current content of the file is similar to the following:
         #   const data = [...list of json data...]
-        if contents_current:
-            contents_current.replace(']', ',')
-        else:
-            # If the file is not yet created, this will be written initially:
-            regex = re.compile(r'\.js$')
-            contents_current = 'const ' + regex.sub('', filename)
-            contents_current += ' = ['
-        convert_file.write(contents_current + json.dumps(json_data) + ']')
+        contents_current = contents_current.replace(']', ',')
+        current_file.close()
+    except:
+        # If the file is not yet created, this will be written initially:
+        regex = re.compile(r'\.js$')
+        contents_current = 'const ' + regex.sub('', filename)
+        contents_current += ' = ['
+    new_file = open(filename, 'w')
+    new_file.write(contents_current + json.dumps(json_data) + ']')
+    new_file.close()
 
 
 if __name__ == '__main__':
@@ -76,14 +79,14 @@ if __name__ == '__main__':
     # Determine the demand for back-end web frameworks for developers:
     web_frameworks = [
         'laravel',
-        'spring-boot',
-        'asp.net',
+        'java-spring',
+        'c%23-.net', # C sharp .NET
         'ruby-rails',
         'python-django',
         'python-flask',
         'node.js'
         ]
-    
+    # The C sharp keyword can be fixed by post-processing
     # job_title is 'developer'
     # job_title is used to filter out the results
     scrape(web_frameworks, 'webFrameworks.js', 'developer')

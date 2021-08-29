@@ -1,1 +1,1 @@
-const dataAnalytics = [{"date": "2021-08-29", "sql": 3620, "tableau": 1993, "power-bi": 1771, "excel": 3614, "python": 1728}]
+const dataAnalytics = [{"date": "2021-08-29", "sql": 3622, "tableau": 1996, "power-bi": 1772, "excel": 4141, "python": 1969}]
