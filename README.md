@@ -12,7 +12,7 @@ skills for the current job market in the Philippines. This is a work in progress
 The current demand for different Web frameworks for companies that are
 hiring web developers:
 
-<code>
+```
 const webFrameworks = [{
     "date": "2021-08-29", 
     "laravel": 1411, 
@@ -23,4 +23,4 @@ const webFrameworks = [{
     "python-flask": 26, 
     "node.js": 1001
 }]
-</code>
+```
