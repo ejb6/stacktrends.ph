@@ -45,7 +45,7 @@ The demand for laravel developers increased from 1400 jobs to 1411 jobs in a mat
 
 ---
 
-Another example is shown for the in-demand skills of Data analysts:
+Another example of real data is shown for the in-demand skills of Data analysts:
 ```
 const dataAnalytics = [
   {
