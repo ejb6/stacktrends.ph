@@ -78,7 +78,7 @@ if __name__ == '__main__':
     # Sample Query:
     # Determine the demand for back-end web frameworks for developers:
     web_frameworks = [
-        'laravel',
+        'php-laravel',
         'java-spring',
         'asp-.net',
         'ruby-rails',
