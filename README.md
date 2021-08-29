@@ -65,6 +65,6 @@ The number of available jobs for Data analysts are higher than web developers.
 The data output might not reflect the actual demand for the following reasons:
 - Incomplete job descriptions
 - Keywords do not match the actual jobs descriptions
-- Skills that are not actually required (but having it is a *plus*)
+- Skills that are not actually required but it is a part of company's description
 
 Project contributions/suggestions are highly appreciated.
