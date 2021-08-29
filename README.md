@@ -66,4 +66,4 @@ The data output might not reflect the actual demand for the following reasons:
 - Keywords do not match the actual jobs descriptions
 - Skills that are not actually required (but having it is a *plus*)
 
-Project contributions/suggestions are accepted for addressing these issues.
+Project contributions/suggestions are highly appreciated.
