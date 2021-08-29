@@ -80,13 +80,12 @@ if __name__ == '__main__':
     web_frameworks = [
         'laravel',
         'java-spring',
-        'c%23-.net', # C sharp .NET
+        'asp-.net',
         'ruby-rails',
         'python-django',
         'python-flask',
         'node.js'
         ]
-    # The C sharp keyword can be fixed by post-processing
     # job_title is 'developer'
     # job_title is used to filter out the results
     scrape(web_frameworks, 'webFrameworks.js', 'developer')
