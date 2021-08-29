@@ -16,7 +16,7 @@ skills for the current job market in the Philippines. This is a work in progress
   
 ## Sample Output
 The demand for different back-end frameworks from companies that are
-hiring web developers on a span of two days:
+hiring web developers on a span of two days (real data):
 ```
 const webFrameworks = [
   {
@@ -39,5 +39,22 @@ const webFrameworks = [
     "python-flask": 26, 
     "node.js": 1001
   },
+]
+```
+The demand for laravel developers increased from 1400 jobs to 1411 jobs in a matter of two days.
+
+---
+
+Another example is shown for the in-demand skills of Data analysts:
+```
+const dataAnalytics = [
+  {
+    "date": "2021-08-29", 
+    "sql": 3620, 
+    "tableau": 1993, 
+    "power-bi": 1771, 
+    "excel": 3614, 
+    "python": 1728
+  }
 ]
 ```
