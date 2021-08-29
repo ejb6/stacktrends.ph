@@ -58,3 +58,11 @@ const dataAnalytics = [
   }
 ]
 ```
+The number of available jobs for Data analysts are higher than web developers.
+
+## Possible Sources of Error
+The data output might not reflect the actual demand for the following reasons:
+- Incomplete job descriptions
+- Keywords do not match the jobs descriptions
+- Skills that are not actually required (but having it is a *plus*)
+Project contributions/suggestions are accepted for addressing these issues.
