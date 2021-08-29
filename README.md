@@ -41,7 +41,7 @@ const webFrameworks = [
   },
 ]
 ```
-The demand for laravel developers increased from 1400 jobs to 1411 jobs in a matter of two days.
+The demand for laravel developers increased from 1400 jobs to 1411 jobs in a span of two days.
 
 ---
 
