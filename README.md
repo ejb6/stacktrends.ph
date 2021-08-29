@@ -6,6 +6,7 @@ skills for the current job market in the Philippines. This is a work in progress
 - [ ] Automate data harvesting using Github actions
 - [ ] Create a web document that displays the output data (using Graphs/Tables/etc)
 - [ ] Deploy on Github Pages
+- [ ] More detailed documentation
 
 ## How to Use
 1. Check and edit `scraper.py`. The sample input for the function is included in the file.
