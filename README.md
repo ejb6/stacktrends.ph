@@ -7,3 +7,17 @@ skills for the current job market in the Philippines. This is a work in progress
 2. Run `python scraper.py`. This should output one or more javascript files.
 3. Each javascript file contains a list of Json data.
   You can process this file however you want.
+  
+## Sample Output
+The current demand for different Web frameworks for companies that are
+hiring web developers:
+`const webFrameworks = [{
+  "date": "2021-08-29", 
+  "laravel": 1411, 
+  "spring-boot": 278, 
+  "asp.net": 73, 
+  "ruby-rails": 74, 
+  "python-django": 87, 
+  "python-flask": 26, 
+  "node.js": 1001
+}]`
