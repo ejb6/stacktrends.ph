@@ -4,7 +4,7 @@ skills for the current job market in the Philippines. This is a work in progress
 
 ## Todos
 - [ ] Automate file generation using Github actions
-- [ ] Create a web document that displays the output data
+- [ ] Create a web document that displays the output data (using Graphs/Tables/etc)
 
 ## How to Use
 1. Check and edit `scraper.py`. The input format for the function is included in the file.
