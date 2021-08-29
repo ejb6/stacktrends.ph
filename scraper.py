@@ -88,3 +88,14 @@ if __name__ == '__main__':
     # job_title is used to filter out the results
     scrape(web_frameworks, 'webFrameworks.js', 'developer')
     # Output the data to 'webFrameworks.js'
+
+    # Another sample query:
+    # Determine the skill demand for data analysts:
+    data_analysis = [
+        'sql',
+        'tableau',
+        'power-bi',
+        'excel',
+        'python'
+        ]
+    scrape(data_analysis, 'dataAnalytics.js', 'data-analyst')
