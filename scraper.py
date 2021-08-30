@@ -98,10 +98,10 @@ if __name__ == '__main__':
     # Another sample query:
     # Determine the skill demand for data analysts:
     data_analysis = [
-        'sql',
-        'tableau',
-        'power-bi',
-        'excel',
-        'python'
+        'SQL',
+        'Tableau',
+        'Power BI',
+        'Excel',
+        'Python'
         ]
     scrape(data_analysis, 'dataAnalytics.js', 'data analyst')
