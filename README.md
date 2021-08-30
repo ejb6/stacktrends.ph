@@ -20,17 +20,18 @@ The demand for different back-end frameworks from companies that are
 hiring web developers (real data):
 ```
 const webFrameworks = [
-  {
-    "date": "2021-08-29", 
-    "laravel": 1529, 
-    "java-spring": 620, 
-    "c%23-.net": 2457, // C Sharp
-    "ruby-rails": 73, 
-    "python-django": 97, 
-    "python-flask": 26, 
-    "node.js": 1004
-  }
+	{
+		"date": "2021-08-30", 
+		"PHP Laravel": 363, 
+		"Java Spring": 529, 
+		"ASP .NET": 543, 
+		"Ruby Rails": 100, 
+		"Python Django": 115, 
+		"Python Flask": 56, 
+		"Node.js": 446
+	}
 ]
+
 
 ```
 
@@ -39,14 +40,14 @@ const webFrameworks = [
 Another example of real data is shown for the in-demand skills of Data analysts:
 ```
 const dataAnalytics = [
-  {
-    "date": "2021-08-29", 
-    "sql": 3620, 
-    "tableau": 1993, 
-    "power-bi": 1771, 
-    "excel": 3614, 
-    "python": 1728
-  }
+	{
+		"date": "2021-08-30", 
+		"sql": 930, 
+		"tableau": 377, 
+		"power-bi": 358, 
+		"excel": 1657, 
+		"python": 376
+	}
 ]
 ```
 The number of available jobs for Data analysts are higher than web developers.
