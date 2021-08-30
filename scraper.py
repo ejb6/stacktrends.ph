@@ -28,22 +28,26 @@ def scrape(keyword_list, filename, job_title):
         print('Filename should not contain any whitespace')
         return None
 
-    regex = re.compile(r'([a-z]+)(\-[a-z]+)*$')
+    regex = re.compile(r'([a-z]+)(\s[a-z]+)*$')
     if not regex.search(job_title):
-        print('job_title should contain dash separated lowercase keywords')
+        print('job_title should contain space separated keywords')
         print('Examples:')
-        print('\tdeveloper')
-        print('\tdata-analyst')
-        print('\tsenior-software-developer')
+        print('\tDeveloper')
+        print('\tData Analyst')
+        print('\tSenior Software Developer')
         return None
 
     # Include the current date (ISO format) on the output
     json_data = {'date': date.today().isoformat()}
     for item in keyword_list:
         # URL for searching jobs for a particular item:
-        url = 'https://www.jobstreet.com.ph/en/'
-        url += 'job-search/' + item + '-' + job_title + '-jobs'
+        url = 'https://ph.indeed.com/jobs?q='
+        # URL can't contain spaces:
+        item_url = item.replace(' ', '%20')
+        job_title_url = job_title.replace(' ', '%20')
+        url += item_url + '%20' + job_title_url + '&l='
 
+        print('Searching for ' + item)
         # Make a request and process out the response:
         request = Request(url=url, headers=headers)
         response = urlopen(request).read()
@@ -78,13 +82,13 @@ if __name__ == '__main__':
     # Sample Query:
     # Determine the demand for back-end web frameworks for developers:
     web_frameworks = [
-        'php-laravel',
-        'java-spring',
-        'asp-.net',
-        'ruby-rails',
-        'python-django',
-        'python-flask',
-        'node.js'
+        'PHP Laravel',
+        'Java Spring',
+        'ASP .NET',
+        'Ruby Rails',
+        'Python Django',
+        'Python Flask',
+        'Node.js'
         ]
     # job_title is 'developer'
     # job_title is used to filter out the results
@@ -100,4 +104,4 @@ if __name__ == '__main__':
         'excel',
         'python'
         ]
-    scrape(data_analysis, 'dataAnalytics.js', 'data-analyst')
+    scrape(data_analysis, 'dataAnalytics.js', 'data analyst')

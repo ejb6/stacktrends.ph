@@ -1,1 +1,1 @@
-{"date": "2021-08-29", "sql": 3623, "tableau": 1736, "power-bi": 1772, "excel": 3615, "python": 1970}]
+const dataAnalytics = [{"date": "2021-08-30", "sql": 930, "tableau": 377, "power-bi": 358, "excel": 1657, "python": 376}]
