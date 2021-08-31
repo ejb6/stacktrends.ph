@@ -21,13 +21,13 @@ The CSV files can be easily converted to any other useful data format (like JSON
 The demand for different back-end frameworks from companies that are
 hiring web developers (real data):
 
-<img src='https://user-images.githubusercontent.com/76241888/131454095-d2e3e99c-584b-4274-93d5-d3ce7fcb0586.png' style='width: 80%'>
+<img src='https://user-images.githubusercontent.com/76241888/131454095-d2e3e99c-584b-4274-93d5-d3ce7fcb0586.png' width='700px'>
 
 ---
 
 Another example of real data is shown for the demand of programming languages by PH companies:
 
-<img src='https://user-images.githubusercontent.com/76241888/131453606-4bf48d47-72de-4465-a926-54a1e394f55f.png' style='width: 80%'>
+<img src='https://user-images.githubusercontent.com/76241888/131453606-4bf48d47-72de-4465-a926-54a1e394f55f.png' width='700px'>
 
 ## Possible Sources of Error
 Note that the data is obtained from search results.
