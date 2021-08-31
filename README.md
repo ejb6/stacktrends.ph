@@ -1,5 +1,6 @@
 # PH Jobskills Index
-This is a simple web scraper that can be used to determine the in-demand 
+
+This is a very simple web scraper that can be used to determine the in-demand 
 skills for the current job market in the Philippines. This is a work in progress.
 
 ## Todos
@@ -11,48 +12,28 @@ skills for the current job market in the Philippines. This is a work in progress
 
 ## How to Use
 1. Check and edit `scraper.py`. The sample input for the function is included in the file.
-2. Run `python scraper.py`. This should output one or more javascript files.
-3. Each javascript file contains a list of Json data.
-  You can process this file however you want.
+2. Run `python scraper.py`. This should output one or more CSV files.
+3. CSV files can be opened using a spreadsheet software.
+
+The CSV files can be easily converted to any other useful data format (like JSON).
   
 ## Sample Output
 The demand for different back-end frameworks from companies that are
 hiring web developers (real data):
-```
-const webFrameworks = [
-  {
-    "date": "2021-08-30", 
-    "PHP Laravel": 363, 
-    "Java Spring": 529, 
-    "ASP .NET": 543, 
-    "Ruby Rails": 100, 
-    "Python Django": 115, 
-    "Python Flask": 56, 
-    "Node.js": 446
-  }
-]
-```
+
+![image](https://user-images.githubusercontent.com/76241888/131454095-d2e3e99c-584b-4274-93d5-d3ce7fcb0586.png)
 
 ---
 
-Another example of real data is shown for the in-demand skills of Data analysts:
-```
-const dataAnalytics = [
-  {
-    "date": "2021-08-30", 
-    "sql": 930, 
-    "tableau": 377, 
-    "power-bi": 358, 
-    "excel": 1657, 
-    "python": 376
-  }
-]
+Another example of real data is shown for the demand of programming languages by PH companies:
 
-```
+![image](https://user-images.githubusercontent.com/76241888/131453606-4bf48d47-72de-4465-a926-54a1e394f55f.png)
+
 
 ## Possible Sources of Error
+Note that the data is obtained from search results.
 The data output might not reflect the actual demand for the following reasons:
-- Incomplete job descriptions
+- Incomplete (or even redundant) job descriptions
 - Keywords do not match the actual jobs descriptions
 - Skills that are not actually required but they are somehow included in the description.
 
