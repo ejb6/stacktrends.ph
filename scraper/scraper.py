@@ -151,7 +151,8 @@ if __name__ == '__main__':
         'Rust',
         'Kotlin',
         'C++',
-        'Swift'
+        'Swift',
+        'Scala'
         ]
     scrape(languages, 'programming.csv', 'developer')
 
