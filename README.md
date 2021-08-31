@@ -11,9 +11,12 @@ skills for the current job market in the Philippines. This is a work in progress
 - [ ] More detailed documentation
 
 ## How to Use
-1. Check and edit `scraper.py`. The sample input for the function is included in the file.
-2. Run `python scraper.py`. This should output one or more CSV files.
-3. CSV files can be opened using a spreadsheet software.
+Check and edit `sample_query.py`. Sample inputs for the function are included in the file.
+
+1. Download/clone this repo. Go into the repo's directory (where `sample_query.py` is located).
+2. Create a Python file and write `from scraper import scrape` on the beginning of the file.
+3. Run the python file you created. This should output one or more CSV files.
+4. CSV files can be opened using a spreadsheet software.
 
 The CSV files can be easily converted to any other useful data format (like JSON).
   
