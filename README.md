@@ -11,7 +11,7 @@ skills for the current job market in the Philippines. This is a work in progress
 - [ ] More detailed documentation
 
 ## How to Use
-Check and edit `sample_query.py`. Sample inputs for the function are included in the file.
+Check `sample_query.py`. Sample inputs for the function are included in this file.
 
 1. Download/clone this repo. Go into the repo's directory (where `sample_query.py` is located).
 2. Create a Python file and write `from scraper import scrape` on the beginning of the file.
