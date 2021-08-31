@@ -11,11 +11,11 @@ skills for the current job market in the Philippines. This is a work in progress
 - [ ] More detailed documentation
 
 ## How to Use
-Check `sample_query.py`. Sample inputs for the function are included in this file.
+Check or try to run `sample_query.py`. Sample inputs for the function are included in this file.
 
 1. Download a copy of the `scraper` folder (where `scraper.py` is located).
 2. Create a directory and copy the `scraper` folder into this directory.
-3. Create a Python file in the directory you created and write `from scraper import scrape` on the beginning of the file.
+3. Create a Python file in this directory and write `from scraper import scrape` on the beginning of the file.
 4. Include the `scrape` function with correct inputs (check for samples in `sample_query.py`).
 5. Run the python file you created. This should output one or more CSV files.
 6. CSV files can be opened using a spreadsheet software.
