@@ -77,7 +77,7 @@ def scrape(keyword_list, filename, job_title):
         # Pick a random user agent:
         user_agent = random.choice(user_agent_list)
         #Set the headers 
-        headers = {'User-Agent': user_agent}
+        headers['User-Agent'] = user_agent
         # Make a request and process out the response:
         request = Request(url=url, headers=headers)
         response = urlopen(request).read()
