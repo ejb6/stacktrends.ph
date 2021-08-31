@@ -15,8 +15,9 @@ Check `sample_query.py`. Sample inputs for the function are included in this fil
 
 1. Download/clone this repo. Go into the repo's directory (where `sample_query.py` is located).
 2. Create a Python file and write `from scraper import scrape` on the beginning of the file.
-3. Run the python file you created. This should output one or more CSV files.
-4. CSV files can be opened using a spreadsheet software.
+3. Include the `scrape` function with correct inputs (check for samples in `sample_query.py`).
+4. Run the python file you created. This should output one or more CSV files.
+5. CSV files can be opened using a spreadsheet software.
 
 The CSV files can be easily converted to any other useful data format (like JSON).
   
