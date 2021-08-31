@@ -1,1 +1,0 @@
-const dataAnalytics = [{"date": "2021-08-30", "SQL": 930, "Tableau": 377, "Power BI": 361, "Excel": 1658, "Python": 376}]

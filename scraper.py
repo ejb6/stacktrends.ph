@@ -1,31 +1,48 @@
 import re
-import json
+import random
+import csv
 from urllib.request import urlopen, Request
 from datetime import date
 
-# Request Header (to avoid being blocked by Jobstreet)
+# Request Header (to avoid being blocked by Indeed)
 headers = {
-    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6)\
-    AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924\
-    .87 Safari/537.36'
+    "Accept": "text/html,application/xhtml+xml,application/xml;" + 
+        "q=0.9,image/webp,image/apng,*/*;q=0.8,application/" +
+        "signed-exchange;v=b3;q=0.9", 
+    "Accept-Encoding": "gzip, deflate, br", 
+    "Accept-Language": "en-GB,en-US;q=0.9,en;q=0.8", 
+    "Connection": "keep-alive",
+    "Host": "https://ph.indeed.com/", 
+    "Upgrade-Insecure-Requests": "1", 
     }
 
+user_agent_list = [
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0)' + 
+        ' Gecko/20100101 Firefox/91.0',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5)' +
+        ' AppleWebKit/605.1.15 (KHTML, like Gecko)' +
+        ' Version/13.1.1 Safari/605.1.15',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0)' +
+        ' Gecko/20100101 Firefox/77.0',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5)' +
+        ' AppleWebKit/537.36 (KHTML, like Gecko)' +
+        ' Chrome/83.0.4103.97 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:77.0)' +
+        ' Gecko/20100101 Firefox/77.0',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' +
+        ' AppleWebKit/537.36 (KHTML, like Gecko)' +
+        ' Chrome/83.0.4103.97 Safari/537.36',
+    ]
+
 # Check for a sample query on the bottom of this file.
-#
-# The output data is stored in a JS file so that...
-# it can be readily displayed in a web document.
+# The output data is stored in a CSV file 
 
 
 def scrape(keyword_list, filename, job_title):
-    # filename can be 'camelCase.js'
-    regex = re.compile(r'\.js$')
+    regex = re.compile(r'\.csv$')
+    # filename can be 'file_sample.csv'
     if not regex.search(filename):
-        print('Filename should be a .js file')
-        return None
-
-    regex = re.compile(r'\s')
-    if regex.search(filename):
-        print('Filename should not contain any whitespace')
+        print('Filename should be a .csv file')
         return None
 
     regex = re.compile(r'([a-z]+)(\s[a-z]+)*$')
@@ -38,16 +55,29 @@ def scrape(keyword_list, filename, job_title):
         return None
 
     # Include the current date (ISO format) on the output
-    json_data = {'date': date.today().isoformat()}
+    csv_row = [date.today().isoformat()]
     for item in keyword_list:
         # URL for searching jobs for a particular item:
         url = 'https://ph.indeed.com/jobs?q='
-        # URL can't contain spaces:
-        item_url = item.replace(' ', '%20')
+
+        # URL character replacements:
+        url_char_replace = {
+            ' ': '%20',
+            '+': '%2B',
+            '#': '%23'
+            }
+        item_url = item
+        for key in url_char_replace:
+            item_url = item_url.replace(key, url_char_replace[key])
+
         job_title_url = job_title.replace(' ', '%20')
         url += item_url + '%20' + job_title_url + '&l='
 
         print('Searching for ' + item)
+        # Pick a random user agent:
+        user_agent = random.choice(user_agent_list)
+        #Set the headers 
+        headers = {'User-Agent': user_agent}
         # Make a request and process out the response:
         request = Request(url=url, headers=headers)
         response = urlopen(request).read()
@@ -58,24 +88,38 @@ def scrape(keyword_list, filename, job_title):
         # Example output: jobs = '1,213 jobs'
         # Convert the 'jobs' string into integer:
         jobs_int = int(jobs.replace(',', '').replace(' jobs', ''))
-        json_data[item] = jobs_int
+        csv_row.append(jobs_int)
 
-    # The following block is used to append the json_data
+    # The following block is used to append the data
     try:
-        current_file = open(filename, 'r')
-        contents_current = current_file.read()
-        # The current content of the file is similar to the following:
-        #   const data = [...list of json data...]
-        contents_current = contents_current.replace(']', ',')
-        current_file.close()
+        # Try to check if the file already exist:
+        file = open(filename, 'r+', newline='')
+        # Position stream at the end of the file (for appending)
+        file.read()
+        file_writer = csv.writer(
+            file,
+            delimiter=',',
+            quotechar='\'',
+            quoting=csv.QUOTE_NONNUMERIC
+            )
     except:
         # If the file is not yet created, this will be written initially:
-        regex = re.compile(r'\.js$')
-        contents_current = 'const ' + regex.sub('', filename)
-        contents_current += ' = ['
-    new_file = open(filename, 'w')
-    new_file.write(contents_current + json.dumps(json_data) + ']')
-    new_file.close()
+        file = open(filename, 'w', newline='')
+        file_writer = csv.writer(
+            file,
+            delimiter=',',
+            quotechar='\'',
+            quoting=csv.QUOTE_NONNUMERIC
+            )
+        keyword_list.insert(0, 'date')
+        file_writer.writerow(keyword_list)
+
+    file_writer.writerow(csv_row)
+    file.close()
+    print('The data is written to ' + filename)
+    print('Double check the file for errors.' +
+        ' Revise the keyword list if necessary')
+        
 
 
 if __name__ == '__main__':
@@ -88,20 +132,49 @@ if __name__ == '__main__':
         'Ruby Rails',
         'Python Django',
         'Python Flask',
-        'Node.js'
+        'Node.js',
         ]
     # job_title is 'developer'
     # job_title is used to filter out the results
-    scrape(web_frameworks, 'webFrameworks.js', 'developer')
-    # Output the data to 'webFrameworks.js'
-
-    # Another sample query:
-    # Determine the skill demand for data analysts:
-    data_analysis = [
-        'SQL',
-        'Tableau',
-        'Power BI',
-        'Excel',
-        'Python'
+    scrape(web_frameworks, 'web_frameworks.csv', 'developer')
+    # Output the data to 'web_frameworks.csv'
+    
+    languages = [
+        'Python',
+        'Golang',
+        'Java',
+        'C#',
+        'Javascript',
+        'Ruby',
+        'Typescript',
+        'PHP',
+        'Rust',
+        'Kotlin',
+        'C++',
+        'Swift'
         ]
-    scrape(data_analysis, 'dataAnalytics.js', 'data analyst')
+    scrape(languages, 'programming.csv', 'developer')
+
+    front_end = [
+        'React',
+        'Angular',
+        'Blazor',
+        'Vue',
+        'jQuery',
+        'Ember',
+        'Svelte',
+        'Backbone.js'
+        ]
+    scrape(front_end, 'frontend.csv', 'developer')
+
+    databases = [
+        'PostgreSQL',
+        'MySQL',
+        'Microsoft SQL Server',
+        'Oracle',
+        'MariaDB',
+        'MongoDB',
+        'Redis',
+        'Firebase'
+        ]
+    scrape(databases, 'databases.csv', 'developer')
