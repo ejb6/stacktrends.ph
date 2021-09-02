@@ -4,7 +4,6 @@ This is a very simple web scraper that can be used to determine the in-demand
 skills for the current job market in the Philippines. This is a work in progress.
 
 ## Todos
-- [ ] Error handling
 - [ ] Automate data harvesting using Github actions
 - [ ] Create a web document that displays the output data (using Graphs/Tables/etc)
 - [ ] Deploy on Github Pages
