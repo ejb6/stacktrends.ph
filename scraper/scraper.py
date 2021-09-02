@@ -5,17 +5,6 @@ from urllib.request import urlopen, Request
 from datetime import date
 
 # Request Header (to avoid being blocked by Indeed)
-headers = {
-    "Accept": "text/html,application/xhtml+xml,application/xml;" + 
-        "q=0.9,image/webp,image/apng,*/*;q=0.8,application/" +
-        "signed-exchange;v=b3;q=0.9", 
-    "Accept-Encoding": "gzip, deflate, br", 
-    "Accept-Language": "en-GB,en-US;q=0.9,en;q=0.8", 
-    "Connection": "keep-alive",
-    "Host": "https://ph.indeed.com/", 
-    "Upgrade-Insecure-Requests": "1", 
-    }
-
 user_agent_list = [
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0)' + 
         ' Gecko/20100101 Firefox/91.0',
@@ -77,7 +66,7 @@ def scrape(keyword_list, filename, job_title):
         # Pick a random user agent:
         user_agent = random.choice(user_agent_list)
         #Set the headers 
-        headers['User-Agent'] = user_agent
+        headers = {'User-Agent': user_agent}
         # Make a request and process out the response:
         request = Request(url=url, headers=headers)
         response = urlopen(request).read()
