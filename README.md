@@ -5,9 +5,9 @@ skills for the current job market in the Philippines. This is a work in progress
 
 ## Todos
 - [ ] Automate data harvesting using Github actions
+- [ ] (Optional) Convert CSV to JSON file
 - [ ] Create a web document that displays the output data (using Graphs/Tables/etc)
 - [ ] Deploy on Github Pages
-- [ ] More detailed documentation
 
 ## How to Use
 Check or try to run `sample_query.py`. Sample inputs for the function are included in this file.
