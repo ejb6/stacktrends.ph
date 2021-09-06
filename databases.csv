@@ -1,5 +1,5 @@
-# Sample Output
-# Shows the number of available jobs for each DB framework
 'date','PostgreSQL','MySQL','Microsoft SQL Server','Oracle','MariaDB','MongoDB','Redis','Firebase'
 '2021-08-31',235,1037,251,719,42,346,134,66
 '2021-09-02',236,1046,250,723,45,349,138,64
+'2021-09-03',234,1063,250,735,45,355,143,70
+'2021-09-06',227,1040,253,726,41,339,133,63

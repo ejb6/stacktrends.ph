@@ -1,5 +1,5 @@
-# Sample Output
-# Shows the number of available jobs for each framework
 'date','React','Angular','Blazor','Vue','jQuery','Ember','Svelte','Backbone.js'
 '2021-08-31',1118,903,10,348,908,25,8,16
 '2021-09-02',1110,891,11,348,909,24,7,16
+'2021-09-03',1113,894,11,348,901,26,7,15
+'2021-09-06',1080,885,10,342,904,25,8,14

@@ -6,25 +6,25 @@ from datetime import date
 
 # Request Header (to avoid being blocked by Indeed)
 user_agent_list = [
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0)' + 
-        ' Gecko/20100101 Firefox/91.0',
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5)' +
-        ' AppleWebKit/605.1.15 (KHTML, like Gecko)' +
-        ' Version/13.1.1 Safari/605.1.15',
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0)' +
-        ' Gecko/20100101 Firefox/77.0',
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5)' +
-        ' AppleWebKit/537.36 (KHTML, like Gecko)' +
-        ' Chrome/83.0.4103.97 Safari/537.36',
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:77.0)' +
-        ' Gecko/20100101 Firefox/77.0',
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' +
-        ' AppleWebKit/537.36 (KHTML, like Gecko)' +
-        ' Chrome/83.0.4103.97 Safari/537.36',
-    ]
+    ('Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) '
+     'Gecko/20100101 Firefox/91.0'),
+    ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) '
+     'AppleWebKit/605.1.15 (KHTML, like Gecko) '
+     'Version/13.1.1 Safari/605.1.15'),
+    ('Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) '
+     'Gecko/20100101 Firefox/77.0'),
+    ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) '
+     'AppleWebKit/537.36 (KHTML, like Gecko) '
+     'Chrome/83.0.4103.97 Safari/537.36'),
+    ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:77.0) '
+     'Gecko/20100101 Firefox/77.0'),
+    ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+     'AppleWebKit/537.36 (KHTML, like Gecko) '
+     'Chrome/83.0.4103.97 Safari/537.36'),
+]
 
 # Check for a sample query on the bottom of this file.
-# The output data is stored in a CSV file 
+# The output data is stored in a CSV file
 
 
 def scrape(keyword_list, filename, job_title):
@@ -65,7 +65,7 @@ def scrape(keyword_list, filename, job_title):
         print('Searching for ' + item)
         # Pick a random user agent:
         user_agent = random.choice(user_agent_list)
-        #Set the headers 
+        # Set the headers
         headers = {'User-Agent': user_agent}
         # Make a request and process out the response:
         request = Request(url=url, headers=headers)
@@ -90,8 +90,8 @@ def scrape(keyword_list, filename, job_title):
             delimiter=',',
             quotechar='\'',
             quoting=csv.QUOTE_NONNUMERIC
-            )
-    except:
+        )
+    except (OSError, IOError) as e:
         # If the file is not yet created, this will be written initially:
         file = open(filename, 'w', newline='')
         file_writer = csv.writer(
@@ -99,16 +99,15 @@ def scrape(keyword_list, filename, job_title):
             delimiter=',',
             quotechar='\'',
             quoting=csv.QUOTE_NONNUMERIC
-            )
+        )
         keyword_list.insert(0, 'date')
         file_writer.writerow(keyword_list)
 
     file_writer.writerow(csv_row)
     file.close()
     print('The data is written to ' + filename)
-    print('Double check the file for errors.' +
-        ' Revise the keyword list if necessary')
-        
+    print('Double check the file for errors. '
+          'Revise the keyword list if necessary')
 
 
 if __name__ == '__main__':
@@ -122,9 +121,8 @@ if __name__ == '__main__':
         'Python Django',
         'Python Flask',
         'Node.js',
-        ]
+    ]
     # job_title is 'developer'
     # job_title is used to filter out the results
     scrape(web_frameworks, 'web_frameworks.csv', 'developer')
     # Output the data to 'web_frameworks.csv'
-    

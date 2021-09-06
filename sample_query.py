@@ -9,8 +9,8 @@ web_frameworks = [
     'Ruby Rails',
     'Python Django',
     'Python Flask',
-    'Node.js',
-    ]
+    'Node.js'
+]
 
 # Input format:
 # scrape(keyword_list, 'filename.csv', job_title)
@@ -33,7 +33,7 @@ languages = [
     'C++',
     'Swift',
     'Scala'
-    ]
+]
 scrape(languages, 'programming.csv', 'developer')
 
 front_end = [
@@ -45,7 +45,7 @@ front_end = [
     'Ember',
     'Svelte',
     'Backbone.js'
-    ]
+]
 scrape(front_end, 'frontend.csv', 'developer')
 
 databases = [
@@ -57,5 +57,5 @@ databases = [
     'MongoDB',
     'Redis',
     'Firebase'
-    ]
+]
 scrape(databases, 'databases.csv', 'developer')
