@@ -89,7 +89,7 @@ def scrape(keyword_list, filename, job_title):
             file,
             delimiter=',',
             quotechar='\'',
-            quoting=csv.QUOTE_NONNUMERIC
+            quoting=csv.QUOTE_MINIMAL
         )
     except (OSError, IOError) as e:
         # If the file is not yet created, this will be written initially:
@@ -98,7 +98,7 @@ def scrape(keyword_list, filename, job_title):
             file,
             delimiter=',',
             quotechar='\'',
-            quoting=csv.QUOTE_NONNUMERIC
+            quoting=csv.QUOTE_MINIMAL
         )
         keyword_list.insert(0, 'date')
         file_writer.writerow(keyword_list)
