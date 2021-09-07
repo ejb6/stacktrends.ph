@@ -13,7 +13,7 @@ skills for the current job market in the Philippines. This is a work in progress
 
 ## How to Use
 Check or try to run `sample_query.py`. Sample inputs for the function are included in this file.
-All sample file outputs are included in this repo as CSV files.
+All sample file outputs are included in this repo as CSV files inside the `output/` directory.
 
 1. Download a copy of the `scraper` folder (where `scraper.py` is located).
 2. Create a directory and copy the `scraper` folder into this directory.
