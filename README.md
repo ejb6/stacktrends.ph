@@ -28,7 +28,7 @@ The CSV files can be easily converted to any other useful data format (like JSON
 The demand for different back-end frameworks from companies that are
 hiring web developers (real data):
 
-<img src='https://user-images.githubusercontent.com/76241888/131454095-d2e3e99c-584b-4274-93d5-d3ce7fcb0586.png' width='700px'>
+<img src='https://user-images.githubusercontent.com/76241888/132360549-f6cbee91-799f-497b-94d7-cbab373b2298.png' width='700px'>
 
 ---
 
