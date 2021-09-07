@@ -34,7 +34,7 @@ hiring web developers (real data):
 
 Another example of real data is shown for the demand of programming languages by PH companies:
 
-<img src='https://user-images.githubusercontent.com/76241888/131453606-4bf48d47-72de-4465-a926-54a1e394f55f.png' width='700px'>
+<img src='https://user-images.githubusercontent.com/76241888/132358961-83ab05ec-eac9-4dd6-b1af-c6cdb5364bb4.png' width='700px'>
 
 ## Possible Sources of Error
 Note that the data is obtained from search results.
