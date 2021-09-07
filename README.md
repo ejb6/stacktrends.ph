@@ -4,6 +4,7 @@ This is a very simple web scraper that can be used to determine the in-demand
 skills for the current job market in the Philippines. This is a work in progress.
 
 ## Todos
+- [ ] Create a separate output folder
 - [ ] Automate data harvesting using Github actions
 - [ ] (Option 1) Convert CSV to JSON file
 - [ ] (Option 2) Directly create JSON file on `scraper.py`
@@ -27,13 +28,13 @@ The CSV files can be easily converted to any other useful data format (like JSON
 The demand for different back-end frameworks from companies that are
 hiring web developers (real data):
 
-<img src='https://user-images.githubusercontent.com/76241888/131454095-d2e3e99c-584b-4274-93d5-d3ce7fcb0586.png' width='700px'>
+<img src='https://user-images.githubusercontent.com/76241888/132360549-f6cbee91-799f-497b-94d7-cbab373b2298.png' width='700px'>
 
 ---
 
 Another example of real data is shown for the demand of programming languages by PH companies:
 
-<img src='https://user-images.githubusercontent.com/76241888/131453606-4bf48d47-72de-4465-a926-54a1e394f55f.png' width='700px'>
+<img src='https://user-images.githubusercontent.com/76241888/132358961-83ab05ec-eac9-4dd6-b1af-c6cdb5364bb4.png' width='700px'>
 
 ## Possible Sources of Error
 Note that the data is obtained from search results.
