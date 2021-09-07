@@ -17,12 +17,14 @@ scrape(web_frameworks, 'web_frameworks.csv', 'developer')
 # Output the data to 'web_frameworks.csv'
 
 front_end = {
+    # React keywords will include atleast one of the 3:
     'React': ['React.js', 'React', 'ReactJS'],
     'Angular': ['Angular', 'Angular.js', 'AngularJS'],
     'Blazor': [],
     'Vue': ['Vue', 'Vue.js', 'VueJS'],
     'jQuery': [],
     'Ember': ['Ember.js', 'Ember', 'EmberJS'],
+    'Meteor': ['Meteor.js', 'Meteor', 'MeteorJS'],
     'Svelte': [],
     'Backbone': ['Backbone JS', 'BackboneJS', 'Backbone.js']
 }
@@ -60,3 +62,15 @@ languages = {
     'Scala': []
 }
 scrape(languages, 'programming.csv', 'developer')
+
+web_design = {
+    'Figma': [],
+    'Material UI': ['materialui', 'material ui'],
+    'Bootstrap': [],
+    'Photoshop': [],
+    'Webflow': [],
+    'Adobe XD': [' XD ', 'AdobeXD', 'Adobe XD'],
+    'Illustrator': [],
+    'SASS': ['SASS', 'SCSS'],
+}
+scrape(web_design, 'web_design.csv', 'web design')
