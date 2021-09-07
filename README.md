@@ -40,7 +40,6 @@ Another example of real data is shown for the demand of programming languages by
 Note that the data is obtained from search results.
 The data output might not reflect the actual demand for the following reasons:
 - Incomplete (or even redundant) job descriptions
-- Keywords do not match the actual jobs descriptions
-- Skills that are not actually required but they are somehow included in the description.
+- Keywords do not match the actual job descriptions
 
 Project contributions/suggestions are highly appreciated.
