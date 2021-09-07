@@ -4,6 +4,7 @@ This is a very simple web scraper that can be used to determine the in-demand
 skills for the current job market in the Philippines. This is a work in progress.
 
 ## Todos
+- [ ] Create a separate output folder
 - [ ] Automate data harvesting using Github actions
 - [ ] (Option 1) Convert CSV to JSON file
 - [ ] (Option 2) Directly create JSON file on `scraper.py`
