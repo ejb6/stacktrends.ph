@@ -27,7 +27,7 @@ user_agent_list = [
 # The output data is stored in a CSV file
 
 
-def scrape(keyword_list, filename, job_title):
+def scrape(keywords, filename, job_title):
     regex = re.compile(r'\.csv$')
     # filename can be 'file_sample.csv'
     if not regex.search(filename):
@@ -45,24 +45,27 @@ def scrape(keyword_list, filename, job_title):
 
     # Include the current date (ISO format) on the output
     csv_row = [date.today().isoformat()]
-    for item in keyword_list:
+    for skill in keywords:
         # URL for searching jobs for a particular item:
         url = 'https://ph.indeed.com/jobs?q='
-
+        url += job_title
+        if len(keywords[skill]) == 0:
+            url += ' "' + skill + '"'
+        else:
+            for i in range(len(keywords[skill])):
+                keywords[skill][i] = '"' + keywords[skill][i] + '"'
+            url += ' (' + ' or '.join(keywords[skill]) + ')'
         # URL character replacements:
         url_char_replace = {
-            ' ': '%20',
             '+': '%2B',
-            '#': '%23'
-            }
-        item_url = item
+            ' ': '%20',
+            '#': '%23',
+            '"': '%22'
+        }
         for key in url_char_replace:
-            item_url = item_url.replace(key, url_char_replace[key])
+            url = url.replace(key, url_char_replace[key])
 
-        job_title_url = job_title.replace(' ', '%20')
-        url += item_url + '%20' + job_title_url + '&l='
-
-        print('Searching for ' + item)
+        print('Searching for ' + skill)
         # Pick a random user agent:
         user_agent = random.choice(user_agent_list)
         # Set the headers
@@ -100,8 +103,9 @@ def scrape(keyword_list, filename, job_title):
             quotechar='\'',
             quoting=csv.QUOTE_MINIMAL
         )
-        keyword_list.insert(0, 'date')
-        file_writer.writerow(keyword_list)
+        first_row = list(keywords.keys())
+        first_row.insert(0, 'date')
+        file_writer.writerow(first_row)
 
     file_writer.writerow(csv_row)
     file.close()
@@ -113,15 +117,15 @@ def scrape(keyword_list, filename, job_title):
 if __name__ == '__main__':
     # Sample Query:
     # Determine the demand for back-end web frameworks for developers:
-    web_frameworks = [
-        'PHP Laravel',
-        'Java Spring',
-        'ASP .NET',
-        'Ruby Rails',
-        'Python Django',
-        'Python Flask',
-        'Node.js',
-    ]
+    web_frameworks = {
+        'Laravel': [],  # Leaving the keywords blank is allowed
+        'Spring': ['spring', 'springboot'],
+        'ASP.NET': ['asp.net', '.net core'],
+        'Ruby on Rails': ['Ruby Rails', 'Ruby on Rails'],
+        'Django': [],
+        'Flask': [],
+        'Express': ['node', 'node.js', 'MERN'],
+    }
     # job_title is 'developer'
     # job_title is used to filter out the results
     scrape(web_frameworks, 'web_frameworks.csv', 'developer')
