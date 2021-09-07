@@ -4,6 +4,7 @@ from scraper import scrape
 # Determine the demand for back-end web frameworks for developers:
 web_frameworks = {
     'Laravel': [],  # leaving the keywords blank is allowed
+    'Codeigniter': [],  # Searches for 'Codeigniter' by default
     'Spring': ['spring', 'springboot'],
     'ASP.NET': ['asp .net', 'asp.net', '.net core'],
     'Ruby on Rails': [],

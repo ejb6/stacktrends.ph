@@ -1,6 +1,7 @@
 import re
 import random
 import csv
+import os
 from urllib.request import urlopen, Request
 from datetime import date
 
@@ -43,6 +44,11 @@ def scrape(keywords, filename, job_title):
         print('\tSenior Software Developer')
         return None
 
+    # Change output directory to './output/'
+    if not os.path.exists(r'output'):
+        os.makedirs(r'output')
+    os.chdir(r'output')
+
     # Include the current date (ISO format) on the output
     csv_row = [date.today().isoformat()]
     for skill in keywords:
@@ -52,6 +58,7 @@ def scrape(keywords, filename, job_title):
         if len(keywords[skill]) == 0:
             url += ' "' + skill + '"'
         else:
+            # Add quotes to keywords for exact matching:
             for i in range(len(keywords[skill])):
                 keywords[skill][i] = '"' + keywords[skill][i] + '"'
             url += ' (' + ' or '.join(keywords[skill]) + ')'
@@ -109,7 +116,8 @@ def scrape(keywords, filename, job_title):
 
     file_writer.writerow(csv_row)
     file.close()
-    print('The data is written to ' + filename)
+    os.chdir(r'../')
+    print('The data is written to ./output/' + filename)
     print('Double check the file for errors. '
           'Revise the keyword list if necessary')
 
