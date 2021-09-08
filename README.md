@@ -13,7 +13,7 @@ skills for the current job market in the Philippines. This is a work in progress
 
 ## How to Use
 ### Quick Method
-1. Download/clone this repo on your PC. Make sure that Python is installed (preferrably version 3.9.6).
+1. Download/clone this repo on your PC. Make sure that Python is installed (preferrably v3.9.6).
 2. Open up your terminal (Bash/Powershell/CMD) and go into the repo's directory.
 3. Run `python sample_query.py` and check the CSV outputs in the `output` directory. 
    You can edit `sample_query.py` to custumize the output.
