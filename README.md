@@ -12,17 +12,21 @@ skills for the current job market in the Philippines. This is a work in progress
 - [ ] Deploy on Github Pages
 
 ## How to Use
-Check or try to run `sample_query.py`. Sample inputs for the function are included in this file.
-All sample file outputs are included in this repo as CSV files inside the `output/` directory.
+### Quick Method
+1. Download/clone this repo on your PC. Make sure that Python is installed (preferrably version 3.9.6).
+2. Open up your terminal (Bash/Powershell/CMD) and go into the repo's directory.
+3. Run `python sample_query.py` and check the CSV outputs in the `output` directory. 
+   You can edit `sample_query.py` to custumize the output.
 
+### Manual
 1. Download a copy of the `scraper` folder (where `scraper.py` is located).
 2. Create a directory and copy the `scraper` folder into this directory.
 3. Create a Python file in this directory and write `from scraper import scrape` on the beginning of the file.
 4. Include the `scrape` function with correct inputs (check for samples in `sample_query.py`).
 5. Run the python file you created. This should output one or more CSV files to an output folder.
-6. CSV files can be opened using a spreadsheet software.
 
 The CSV files can be easily converted to any other useful data format (like JSON).
+These files can also be opened with a spreadsheet software like MS Excel.
   
 ## Sample Output
 The demand for different back-end frameworks from companies that are
