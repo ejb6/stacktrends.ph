@@ -29,14 +29,13 @@ The CSV files can be easily converted to any other useful data format (like JSON
 These files can also be opened with a spreadsheet software like MS Excel.
   
 ## Sample Output
-The demand for different back-end frameworks from companies that are
-hiring web developers (real data):
+The demand for different programming languages from PH employers (real data):
 
 <img src='https://user-images.githubusercontent.com/76241888/132360549-f6cbee91-799f-497b-94d7-cbab373b2298.png' width='700px'>
 
 ---
 
-Another example of real data is shown for the demand of programming languages by PH companies:
+Another example of real data is shown for the demand for database frameworks.
 
 <img src='https://user-images.githubusercontent.com/76241888/132358961-83ab05ec-eac9-4dd6-b1af-c6cdb5364bb4.png' width='700px'>
 
