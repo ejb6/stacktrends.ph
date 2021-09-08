@@ -58,7 +58,7 @@ def scrape(keywords, filename, job_title):
         if len(keywords[skill]) == 0:
             url += ' "' + skill + '"'
         else:
-            # Add quotes to keywords for exact matching:
+            # Add quotes to keywords to account for spaces:
             for i in range(len(keywords[skill])):
                 keywords[skill][i] = '"' + keywords[skill][i] + '"'
             url += ' (' + ' or '.join(keywords[skill]) + ')'
