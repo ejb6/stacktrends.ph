@@ -1,4 +1,4 @@
-# PH Jobskills Index
+# PH Developer Skills Index
 
 This is a very simple web scraper that can be used to determine the in-demand 
 skills for the current job market in the Philippines. This is a work in progress.
