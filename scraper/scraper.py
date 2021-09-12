@@ -2,6 +2,7 @@ import re
 import random
 import csv
 import os
+import time
 from urllib.request import urlopen, Request
 from datetime import date
 
@@ -35,19 +36,10 @@ def scrape(keywords, filename, job_title):
         print('Filename should be a .csv file')
         return None
 
-    regex = re.compile(r'([a-z]+)(\s[a-z]+)*$')
-    if not regex.search(job_title):
-        print('job_title should contain space separated keywords')
-        print('Examples:')
-        print('\tDeveloper')
-        print('\tData Analyst')
-        print('\tSenior Software Developer')
-        return None
-
     # Change output directory to './output/'
-    if not os.path.exists(r'output'):
-        os.makedirs(r'output')
-    os.chdir(r'output')
+    if not os.path.exists('output'):
+        os.makedirs('output')
+    os.chdir('output')
 
     # Include the current date (ISO format) on the output
     csv_row = [date.today().isoformat()]
@@ -65,9 +57,11 @@ def scrape(keywords, filename, job_title):
         # URL character replacements:
         url_char_replace = {
             '+': '%2B',
-            ' ': '%20',
+            ' ': '+',
             '#': '%23',
-            '"': '%22'
+            '"': '%22',
+            '(': '%28',
+            ')': '%29'
         }
         for key in url_char_replace:
             url = url.replace(key, url_char_replace[key])
@@ -81,13 +75,23 @@ def scrape(keywords, filename, job_title):
         request = Request(url=url, headers=headers)
         response = urlopen(request).read()
         webdata = response.decode()
-        # Look for the number of jobs using regex:
-        regex = re.compile(r'\d+(,\d+)* jobs')
-        jobs = regex.search(webdata).group()
-        # Example output: jobs = '1,213 jobs'
-        # Convert the 'jobs' string into integer:
-        jobs_int = int(jobs.replace(',', '').replace(' jobs', ''))
-        csv_row.append(jobs_int)
+        # Check if there are no jobs available:
+        regex = re.compile('did not match any jobs')
+        if regex.search(webdata):
+            # Append 0 jobs
+            csv_row.append(0)
+        else:
+            # Look for the number of jobs using regex:
+            regex = re.compile(r'\d+(,\d+)* jobs')
+            jobs = regex.search(webdata).group()
+            # Example output: jobs = '1,213 jobs'
+            # Convert the 'jobs' string into integer:
+            jobs_int = int(jobs.replace(',', '').replace(' jobs', ''))
+            csv_row.append(jobs_int)
+
+        time_wait = random.randint(0, 4)
+        print(f'Waiting for {time_wait} seconds to avoid detection.\n')
+        time.sleep(time_wait)
 
     # The following block is used to append the data
     try:
@@ -119,7 +123,7 @@ def scrape(keywords, filename, job_title):
     os.chdir(r'../')
     print('The data is written to ./output/' + filename)
     print('Double check the file for errors. '
-          'Revise the keyword list if necessary')
+          'Revise the keyword list if necessary\n')
 
 
 if __name__ == '__main__':
