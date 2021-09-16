@@ -6,8 +6,7 @@ skills for the current job market in the Philippines. This is a work in progress
 ## Todos
 - [x] Create a separate output folder
 - [ ] Automate data harvesting using Github actions
-- [ ] (Option 1) Convert CSV to JSON file
-- [ ] (Option 2) Directly create JSON file on `scraper.py`
+- [ ] Parse the CSV data using JavaScript
 - [ ] Create a web document that displays the output data (using Graphs/Tables/etc)
 - [ ] Deploy on Github Pages
 
