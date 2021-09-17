@@ -20,6 +20,9 @@ The CSV files can be easily converted to any other useful data format (like JSON
 These files can also be opened with a spreadsheet software like MS Excel.
 
 ### Manual Queries
+
+![image](https://user-images.githubusercontent.com/76241888/133780613-0eb91835-66d6-4323-9afd-bc393a244235.png)
+
 Please check  the `queries/` directory if you haven't done so. If you want to create your own CSV query files, take note of the following sample format for the *search term*:
 
 ```
