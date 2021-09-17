@@ -1,3 +1,2 @@
-date,PostgreSQL,MySQL,Microsoft SQL Server,Oracle,MariaDB,MongoDB,Redis,Firebase
-2021-09-07,342,1066,925,44,46,382,142,60
-2021-09-12,354,1072,955,43,49,389,145,68
+date,PostgreSQL,MySQL,Microsoft SQL Server,Oracle,MariaDB,MongoDB,AWS Database Services,Redis,Firebase
+2021-09-17,529,1337,1190,166,65,776,170,167,70

@@ -25,38 +25,24 @@ user_agent_list = [
      'Chrome/83.0.4103.97 Safari/537.36'),
 ]
 
-# Check for a sample query on the bottom of this file.
-# The output data is stored in a CSV file
 
-
-def scrape(keywords, filename, job_title):
-    regex = re.compile(r'\.csv$')
-    # filename can be 'file_sample.csv'
-    if not regex.search(filename):
-        print('Filename should be a .csv file')
-        return None
-
-    # Change output directory to './output/'
+def scrape(csv_file):
+    # Output directory is './output/'
     if not os.path.exists('output'):
         os.makedirs('output')
-    os.chdir('output')
-
+    csv_reader = csv.DictReader(csv_file)
     # Include the current date (ISO format) on the output
-    csv_row = [date.today().isoformat()]
-    for skill in keywords:
-        # URL for searching jobs for a particular item:
-        url = 'https://ph.indeed.com/jobs?q='
-        url += job_title
-        if len(keywords[skill]) == 0:
-            url += ' "' + skill + '"'
-        else:
-            # Add quotes to keywords to account for spaces:
-            for i in range(len(keywords[skill])):
-                keywords[skill][i] = '"' + keywords[skill][i] + '"'
-            url += ' (' + ' or '.join(keywords[skill]) + ')'
+    output_row = [date.today().isoformat()]
+    # List of skills for the CSV output first row:
+    first_row = []
+    for row in csv_reader:
+        first_row.append(row['name'])
+        search_term = row['search term']
+
         # URL character replacements:
         url_char_replace = {
             '+': '%2B',
+            '/': '%2F',
             ' ': '+',
             '#': '%23',
             '"': '%22',
@@ -64,9 +50,12 @@ def scrape(keywords, filename, job_title):
             ')': '%29'
         }
         for key in url_char_replace:
-            url = url.replace(key, url_char_replace[key])
+            search_term = search_term.replace(key, url_char_replace[key])
 
-        print('Searching for ' + skill)
+        # URL for searching jobs for a particular item:
+        url = 'https://ph.indeed.com/jobs?q=' + search_term
+
+        print('Searching for ' + row['name'])
         # Pick a random user agent:
         user_agent = random.choice(user_agent_list)
         # Set the headers
@@ -79,7 +68,7 @@ def scrape(keywords, filename, job_title):
         regex = re.compile('did not match any jobs')
         if regex.search(webdata):
             # Append 0 jobs
-            csv_row.append(0)
+            output_row.append(0)
         else:
             # Look for the number of jobs using regex:
             regex = re.compile(r'\d+(,\d+)* jobs')
@@ -87,58 +76,40 @@ def scrape(keywords, filename, job_title):
             # Example output: jobs = '1,213 jobs'
             # Convert the 'jobs' string into integer:
             jobs_int = int(jobs.replace(',', '').replace(' jobs', ''))
-            csv_row.append(jobs_int)
+            output_row.append(jobs_int)
 
-        time_wait = random.randint(0, 4)
-        print(f'Waiting for {time_wait} seconds to avoid detection.\n')
+        time_wait = random.randint(0, 2)
+        if time_wait:
+            print(f'Waiting for {time_wait}s to avoid detection.\n')
         time.sleep(time_wait)
 
+    filename = 'output/' + os.path.basename(csv_file.name)
     # The following block is used to append the data
     try:
         # Try to check if the file already exist:
-        file = open(filename, 'r+', newline='')
+        output_file = open(filename, 'r+', newline='')
         # Position stream at the end of the file (for appending)
-        file.read()
+        output_file.read()
         file_writer = csv.writer(
-            file,
+            output_file,
             delimiter=',',
             quotechar='\'',
             quoting=csv.QUOTE_MINIMAL
         )
     except (OSError, IOError) as e:
         # If the file is not yet created, this will be written initially:
-        file = open(filename, 'w', newline='')
+        output_file = open(filename, 'w', newline='')
         file_writer = csv.writer(
-            file,
+            output_file,
             delimiter=',',
             quotechar='\'',
             quoting=csv.QUOTE_MINIMAL
         )
-        first_row = list(keywords.keys())
         first_row.insert(0, 'date')
         file_writer.writerow(first_row)
 
-    file_writer.writerow(csv_row)
-    file.close()
-    os.chdir(r'../')
-    print('The data is written to ./output/' + filename)
+    file_writer.writerow(output_row)
+    output_file.close()
+    print('The data is written to ' + filename)
     print('Double check the file for errors. '
           'Revise the keyword list if necessary\n')
-
-
-if __name__ == '__main__':
-    # Sample Query:
-    # Determine the demand for back-end web frameworks for developers:
-    web_frameworks = {
-        'Laravel': [],  # Leaving the keywords blank is allowed
-        'Spring': ['spring', 'springboot'],
-        'ASP.NET': ['asp.net', '.net core'],
-        'Ruby on Rails': ['Ruby Rails', 'Ruby on Rails'],
-        'Django': [],
-        'Flask': [],
-        'Express': ['node', 'node.js', 'MERN'],
-    }
-    # job_title is 'developer'
-    # job_title is used to filter out the results
-    scrape(web_frameworks, 'web_frameworks.csv', 'developer')
-    # Output the data to 'web_frameworks.csv'

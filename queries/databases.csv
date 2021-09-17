@@ -1,0 +1,10 @@
+name,search term
+PostgreSQL,(pgSQL or PostgreSQL or Postgres or Postgre) (developer or "software engineer" or programmer)
+MySQL,(MySQL or "My SQL") (developer or "software engineer" or programmer)
+Microsoft SQL Server,(MSSQL or "MS SQL" or "SQL Server" or "Microsoft SQL") (developer or "software engineer" or programmer)
+Oracle,(OracleDB or "Oracle Database" or "Oracle DB" or "Oracle SQL") (developer or "software engineer" or programmer)
+MariaDB,(MariaDB or "Maria Database" or "Maria DB") (developer or "software engineer" or programmer)
+MongoDB,(MongoDB or "Mongo Database" or "Mongo DB" or NoSQL) (developer or "software engineer" or programmer)
+AWS Database Services,(Aurora or RDS or Redshift or DynamoDB) (developer or "software engineer" or programmer)
+Redis,Redis (developer or "software engineer" or programmer)
+Firebase,Firebase (developer or "software engineer" or programmer)
