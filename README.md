@@ -5,7 +5,7 @@ skills for the current job market in the Philippines. This does not require any 
 
 ## Sample Output
 
-The demand for different programming languages from PH employers (real data):
+The demand for different programming languages from PH employers:
 
 <img src='https://user-images.githubusercontent.com/76241888/132360549-f6cbee91-799f-497b-94d7-cbab373b2298.png' width='700px'>
 
