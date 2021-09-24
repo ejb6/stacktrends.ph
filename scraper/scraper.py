@@ -80,7 +80,7 @@ def scrape(csv_file):
 
         time_wait = random.randint(0, 2)
         if time_wait:
-            print(f'Waiting for {time_wait}s to avoid detection.\n')
+            print(f'Waiting for {time_wait}s to avoid detection.')
         time.sleep(time_wait)
 
     filename = 'output/' + os.path.basename(csv_file.name)
