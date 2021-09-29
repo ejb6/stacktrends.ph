@@ -1,7 +1,7 @@
 name: GitHub Actions AutoHarvest
 on:
   schedule:
-    - cron: '* * * * FRI'
+    - cron: '0 9 * * FRI'
 jobs:
   Test-AutoHarvest:
     runs-on: ubuntu-latest
