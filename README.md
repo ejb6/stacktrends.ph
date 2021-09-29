@@ -17,7 +17,7 @@ Another example of real data is shown for the demand for database frameworks.
 
 ## TODO
 - [x] Create a separate output folder
-- [ ] Automate data harvesting using GitHub actions
+- [ ] Automate data harvesting using GitHub actions (to be confirmed)
 - [ ] Parse the CSV data using JavaScript
 - [ ] Create a web document that displays the output data (using Graphs, tables)
 - [ ] Deploy on GitHub Pages
