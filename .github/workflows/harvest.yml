@@ -1,4 +1,4 @@
-name: GitHub Actions AutoHarvest
+name: AutoHarvest Data
 on:
   schedule:
     - cron: '0 9 * * FRI'
