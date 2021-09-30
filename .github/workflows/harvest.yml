@@ -1,7 +1,7 @@
 name: AutoHarvest Data
 on:
   schedule:
-    - cron: '0 9 * * FRI'
+    - cron: '0 0 * * FRI'
 jobs:
   Test-AutoHarvest:
     runs-on: ubuntu-latest
