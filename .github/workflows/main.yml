@@ -3,7 +3,7 @@ on:
   schedule:
     - cron: '0 0 * * FRI'
 jobs:
-  Test-AutoHarvest:
+  Harvest:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo content
