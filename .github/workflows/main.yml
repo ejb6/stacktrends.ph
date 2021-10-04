@@ -1,7 +1,7 @@
 name: AutoHarvest Data
 on:
   schedule:
-    - cron: '0 0 * * FRI'
+    - cron: '0 0 * * TUE'
 jobs:
   Harvest:
     runs-on: ubuntu-latest
@@ -27,4 +27,4 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+          branch: test
