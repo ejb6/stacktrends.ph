@@ -1,7 +1,7 @@
 name: AutoHarvest Data
 on:
   schedule:
-    - cron: '0 0 * * TUE'
+    - cron: '0 0 * * WED'
 jobs:
   Harvest:
     runs-on: ubuntu-latest
