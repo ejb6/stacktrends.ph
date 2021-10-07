@@ -22,9 +22,9 @@ Another example of real data is shown for the demand for database frameworks.
 - [ ] Create a web document that displays the output data (using Graphs, tables)
 - [ ] Deploy on GitHub Pages
 
-## How to Use
+## How to obtain data on your own
 ### Quick Method
-1. Download/clone this repo on your PC. Make sure that Python is installed (preferably v3.9.6).
+1. Download/clone this repo on your PC. Make sure that Python is installed. This was developed using Python 3.9.6.
 2. Open up your terminal (Bash/PowerShell/CMD) and go into the repo's directory.
 3. Enter `python run.py` and check the CSV outputs in the `output` directory.
 
