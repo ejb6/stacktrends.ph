@@ -1,7 +1,7 @@
 name: AutoHarvest Data
 on:
   schedule:
-    - cron: '0 1 * * FRI'
+    - cron: '0 0 * * FRI'
 jobs:
   Harvest:
     runs-on: ubuntu-latest
@@ -20,7 +20,7 @@ jobs:
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
-          git config --local user.name "github-actions[bot]"
+          git config --local user.name "actions-user"
           git add output
           git commit -m "Auto-update data"
           
